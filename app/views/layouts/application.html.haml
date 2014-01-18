@@ -1,0 +1,44 @@
+!!!
+%html{:lang => I18n.locale}
+  %head
+    %title= content_for?(:title) ? yield(:title) : t('app_name')
+    %meta{:charset => "utf-8"}
+    %meta{:content => content_for?(:description) ? yield(:description) : t('app_name'), :name => "description"}
+      = stylesheet_link_tag "application", :media => "all"
+      = csrf_meta_tags
+      = yield(:head)
+  %body{:class => "#{controller_name} #{action_name}"}
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          =link_to root_path do
+            %span Sandia
+            Delécolle
+          %br
+          %small= t 'baseline'
+    .main.container
+      = render 'layouts/messages'
+      = yield
+  %footer
+    -unless @mentions.nil?
+      =link_to t("switch_lang_#{lang_switch}"), root_path(:locale => lang_switch)
+      |
+      =link_to t('pages.mentions'), '#myModal', 'data-toggle' => 'modal' 
+      #myModal.modal.fade{'tabindex'=>"-1", :role => "dialog", 'aria-labelledby' => "myModalLabel", 'aria-hidden' => "true"}
+        .modal-dialog
+          .modal-content
+            .modal-header
+              %button.close{:type => "button", 'data-dismiss' => "modal", 'aria-hidden' => "true"}
+                &times;
+              %h4.modal-title= t('pages.mentions')
+            .modal-body
+              %h4=@mentions.title
+              =raw @mentions.content
+            .modal-footer
+              %button.btn.btn-success{:type => "button", 'data-dismiss' => "modal"}
+                =t('close')
+
+
+    = javascript_include_tag "application"
+    / ! end of .container
+  / ! end of #main
