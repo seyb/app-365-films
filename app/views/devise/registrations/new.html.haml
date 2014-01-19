@@ -1,0 +1,20 @@
+%h2 Sign up
+
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+
+  .form-group
+    = f.label :email, :class => 'col-sm-2 control-label'
+    = f.email_field :email, :autofocus => true, :class => 'form-control input-lg'
+
+  .form-group
+    = f.label :password, :class => 'col-sm-2 control-label'
+    = f.password_field :password, :class => 'form-control input-lg'
+
+  .form-group
+    = f.label :password_confirmation, :class => 'col-sm-2 control-label'
+    = f.password_field :password_confirmation, :class => 'form-control input-lg'
+
+  = f.submit "Sign up", :class => 'btn btn-success'
+
+= render "devise/shared/links"

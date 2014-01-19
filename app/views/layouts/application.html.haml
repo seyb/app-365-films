@@ -8,14 +8,7 @@
       = csrf_meta_tags
       = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    .navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          =link_to root_path do
-            %span Sandia
-            Delécolle
-          %br
-          %small= t 'baseline'
+    = render 'layouts/menu'
     .main.container
       = render 'layouts/messages'
       = yield

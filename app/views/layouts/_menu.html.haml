@@ -1,0 +1,18 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      = link_to root_path, {:class => 'navbar-brand'} do
+        =t 'app_name'
+      %button.navbar-toggle{:type => "button", 'data-toggle' => "collapse", 'data-target' => ".navbar-collapse"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .navbar-collapse.collapse
+      %ul.nav.navbar-nav.navbar-right
+        -if user_signed_in?
+          %li
+            =button_to t('devise.common.sign_out'), destroy_user_session_path, :method => 'delete', class: 'btn btn-light btn-menu'
+        -else
+          %li
+            =link_to t('devise.common.sign_in'), new_user_session_path, class: 'btn btn-light btn-menu'
