@@ -1,0 +1,2 @@
+class Recommandation < Film
+end

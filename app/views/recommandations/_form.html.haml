@@ -1,0 +1,14 @@
+= simple_form_for(@recommandation) do |f|
+  -if @recommandation.errors.any?
+    .alert.alert-danger
+      %span
+        = pluralize(@recommandation.errors.count, t('activerecord.errors.found'))
+      %ul
+        - @recommandation.errors.full_messages.each do |msg|
+          %li= msg
+
+  =f.input :title, input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group'  }
+  =f.input :description, input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }
+  =f.input :year, input_html: { class: 'form-control', value: Time.now.year}, wrapper_html: { class: 'form-group' }, label: t('recommandations.year')
+  .actions
+    = f.button :submit, class: 'btn btn-success'

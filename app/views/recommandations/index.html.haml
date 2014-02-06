@@ -1,0 +1,13 @@
+%h1 
+  = t('recommandations.list')
+%dt
+  -@recommandations.each do |recommandation|
+    %dt
+      =recommandation.title
+    %dd
+      =recommandation.description
+    %dd
+      = link_to t('actions.edit'), edit_recommandation_path(recommandation)
+      = link_to t('actions.delete'), recommandation, method: :delete, data: { confirm: 'Are you sure?' }
+
+= link_to 'New Recommandation', new_recommandation_path

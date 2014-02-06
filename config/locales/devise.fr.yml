@@ -19,6 +19,8 @@ fr:
       inactive: "Votre compte n'est pas encore activé."
       admin_user:
         not_found_in_database: "Courriel ou mot de passe incorrect."
+      user:
+        not_found_in_database: "Courriel ou mot de passe incorrect."
     sessions:
       user:
         signed_in: "Connecté."

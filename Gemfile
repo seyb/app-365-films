@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem "devise", "~> 3.2.2"
 gem "cancan"
+gem "simple_form", "~> 3.0.1"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
