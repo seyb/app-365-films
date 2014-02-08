@@ -5,9 +5,8 @@ App365Films::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root :to => "films#index"
+  root :to => "films#list"
   resources :films
-  resources :recommandations
 
   # Example resource route with options:
   #   resources :products do

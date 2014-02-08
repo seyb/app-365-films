@@ -1,1 +1,21 @@
-=@films.count
+%h1 
+  = t('recommandations.list')
+%table.table
+  %tr
+    %th
+      Film
+    %th
+      Année
+    %th
+      Actions
+  -@films.each do |film|
+    %tr
+      %td
+        =film.title
+      %td
+        =film.year
+      %td
+        = link_to t('actions.edit'), edit_film_path(film)
+        = link_to t('actions.delete'), film, method: :delete, data: { confirm: 'Are you sure?' }
+
+= link_to 'New film', new_film_path

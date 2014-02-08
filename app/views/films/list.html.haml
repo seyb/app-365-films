@@ -1,0 +1,16 @@
+%h1 
+  = t('recommandations.list')
+%table.table
+  %tr
+    %th
+      Film
+    %th
+      Année
+  -@films.each do |film|
+    %tr
+      %td
+        =film.title
+      %td
+        =film.year
+
+= link_to t('films.new'), new_film_path

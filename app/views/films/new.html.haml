@@ -1,0 +1,8 @@
+%h1= t 'recommandations.new'
+-if user_signed_in?
+  = render 'form'
+  = link_to t('back'), films_path
+- else
+  = render 'recommandation_form'
+  = link_to t('back'), root_path
+

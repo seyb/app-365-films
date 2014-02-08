@@ -22,20 +22,26 @@
 fr:
   app_name: "365 films"
   back: 'Retour à la liste'
+  user:
+    not_allowed: 'Accès restreint'
   helpers:
     label:
       user:
         remember_me: 'Se souvenir de moi'
-  recommandations:
+  films:
     new: 'Nouvelle recommandation'
     year: 'Année'
     list: Liste des recommandations
     edit: 'Edition de la recommandation'
+    added: 'Merci pour cette recommandation !'
+    failed: "Désolé, une erreur est survenue lors de l'enregistrement de la recommandation"
   submit: 'Soumettre'
   actions: 
     edit: "Modifier"
     delete: "Supprimer"
   activerecord:
+    film:
+      title: Titre
     errors:
       found: 'erreur(s) trouvée(s)'
       models:
